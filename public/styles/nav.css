@@ -1,0 +1,43 @@
+nav {
+  background-color: #00a087;
+  font-color: #e8fdff;
+  padding: 0 2em 0 2em;
+  width: 100%;
+  position: fixed;
+}
+
+#nav-bar .logo {
+  height: 80px;
+  width: 80px;
+}
+
+#nav-bar .header {
+  font-size: 200%;
+  color: white;
+  padding-left: 10px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#composeButtonSpan {
+  float: right;
+}
+
+#composeButton {
+  float: right;
+  background-color: #e8fdff;
+  color: #00a087;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 65px;
+  width: 120px;
+  margin-top: 10px;
+  font-size: 140%;
+}
+
+#composeButton:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+}

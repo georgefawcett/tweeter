@@ -1,0 +1,127 @@
+.new-tweet h2 {
+  border-bottom: 2px solid black;
+}
+
+#submittweet {
+  float: left;
+}
+
+.new-tweet {
+  margin: 0 2em 0 2em;
+  padding: 0 1em 1em 1em;
+  background-color: #dddddd;
+  border: 1px solid #bbbbbb;
+  border-radius: 8px;
+  height: 160px;
+}
+
+.new-tweet:hover {
+  border: 1px solid #444444;
+}
+
+.new-tweet:hover h2 {
+  color: #00a087;
+  border-bottom: 2px solid #00a087;
+}
+
+.tweeterror {
+  background-color: #ffe6e6;
+  border: 1px solid red;
+  color: red;
+  font-size: 80%;
+  padding: 3px 10px 3px 10px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.tweetok {
+  background-color: green;
+  border: 1px solid green;
+  color: white;
+  font-size: 80%;
+  padding: 3px 6px 3px 6px;
+  margin-left: 10px;
+  display: inline-block;
+}
+
+.new-tweet textarea {
+  width: 100%;
+}
+
+.counter {
+  float: right;
+  font-style: italic;
+}
+
+.buttons:hover {
+  background-color: black;
+}
+
+#tweets {
+padding-bottom: 20px;
+}
+
+.username {
+    position: relative;
+    top: -54px;
+    float: right;
+}
+
+.tweetContent {
+  padding: 1em;
+}
+
+article.tweet {
+  margin: 2em 2em 2em 2em;
+  border: 1px solid #cccccc;
+  border-radius: 8px;
+}
+
+article.tweet:hover {
+  border: 1px solid #444444;
+}
+
+article.tweet:hover img {
+  opacity: 1;
+}
+
+article.tweet:hover h2 {
+  color: #444444;
+}
+
+article.tweet:hover header {
+  background-color: #dddddd;
+}
+
+article.tweet:hover footer {
+  border-top: 1px solid #444444;
+}
+
+article.tweet header {
+  background-color: #eeeeee;
+  padding: 1em 1em 1em 1em;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+
+article.tweet footer {
+  border-top: 1px solid #eeeeee;
+  padding: 0.5em 1em 0.5em 1em;
+}
+
+article.tweet h2 {
+  color: #888888;
+  border-bottom: none;
+  margin-top: 0;
+  margin-bottom: 30px;
+  margin-left: 70px;
+}
+
+article.tweet img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  float: left;
+  opacity: 0.7;
+}
