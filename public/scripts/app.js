@@ -95,10 +95,27 @@ $( "#input_form" ).submit(function( event ) {
   } else {
 
 
+  function addTweet() {
+    $.ajax( {
+      type: "POST",
+      url: '/tweets',
+      data: formdata,
+      success: loadNewTweet
+    } );
+  }
 
-  const renderNewTweet = function(tweet) {
-    var tweet = tweet[tweet.length-1];
-    var tweetDate = new Date(tweet.created_at);
+function loadNewTweet() {
+      $.ajax({
+       method: 'GET',
+        url: `/tweets`,
+        success: renderNewTweet
+      });
+    };
+
+function renderNewTweet(tweets) {
+  var tweet = tweets[tweets.length-1];
+
+ var tweetDate = new Date(tweet.created_at);
     var tweetDate2 = tweetDate.toLocaleString();
     function escape(str) {
       var div = document.createElement('div');
@@ -126,32 +143,48 @@ $( "#input_form" ).submit(function( event ) {
         var msg = '';
     $('#errormessage').removeClass("tweetok").html(msg);
     $('#tweets').prepend($output);
-  }
-
-    function loadNewTweet() {
-      $.ajax({
-       method: 'GET',
-        url: `/tweets`,
-        success: renderNewTweet
-      });
-    };
-
-
-
-function addTweet() {
-    $.ajax( {
-      type: "POST",
-      url: '/tweets',
-      data: formdata,
-      success: loadNewTweet
-    } );
 
 }
 
-    var msg = '&#10003;';
-    $('#errormessage').addClass("tweetok").removeClass("tweeterror").html(msg);
-setTimeout(addTweet(), 2000);
+// const renderNewTweet = function renderNewTweet(tweets) {
 
+//     // var tweet = tweet[tweet.length-1];
+//     $('#tweets').prepend(Array[51].created_at, "test");
+//     debugger;
+    // var tweetDate = new Date(tweet.created_at);
+    // var tweetDate2 = tweetDate.toLocaleString();
+    // function escape(str) {
+    //   var div = document.createElement('div');
+    //   div.appendChild(document.createTextNode(str));
+    //   return div.innerHTML;
+    // }
+    // var $output = `<article class="tweet">
+    //           <header>
+    //   <img src="${tweet.user.avatars.small}">
+    //   <h2>${tweet.user.name}</h2>
+    //   <div>
+    //         <div class="username">${tweet.user.handle}</span>
+    //         </div>
+
+    //       </header>
+    //       <div class="tweetContent">
+    //       ${escape(tweet.content.text)}
+    //       </div>
+    //     <footer>
+    //     ${tweetDate2}
+
+    //     <span class="buttons" style="float:right">Test buttons</span>
+    //     </footer>
+    //     </article>`;
+    //     var msg = '';
+    // $('#errormessage').removeClass("tweetok").html(msg);
+    // $('#tweets').prepend($output);
+  // }
+
+
+
+
+addTweet();
 
 
 }
@@ -172,7 +205,7 @@ setTimeout(addTweet(), 2000);
   // renderTweets(tweetData);
 
 });
-debugger;
+
 // use for each of the items, generate HTML
 // newDOM += myHTML
 // append HTML

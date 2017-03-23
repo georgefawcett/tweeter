@@ -34,10 +34,20 @@ nav {
   width: 120px;
   margin-top: 10px;
   font-size: 140%;
+  outline: none;
+
+
 }
 
 #composeButton:hover {
   background-color: white;
   color: black;
   cursor: pointer;
+
+}
+
+#composeButton:active {
+  -webkit-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
 }
