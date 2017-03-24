@@ -4,6 +4,22 @@
 
 #submittweet {
   float: left;
+  background-color: #e8fdff;
+  color: black;
+  border: 1px solid black;
+  border-radius: 3px;
+  width: 120px;
+  height: 30px;
+}
+
+#submittweet:hover {
+  background-color: white;
+}
+
+#submittweet:active {
+  -webkit-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
+  box-shadow: inset 0 1px 10px rgba(0, 0, 0, 0.6);
 }
 
 .new-tweet {
@@ -16,20 +32,18 @@
 }
 
 .new-tweet:hover {
-  border: 1px solid #444444;
+  border: 1px solid #00a087;
 }
 
-.new-tweet:hover h2 {
-  color: #00a087;
-  border-bottom: 2px solid #00a087;
-}
+
 
 .tweeterror {
   background-color: #ffe6e6;
   border: 1px solid red;
+  border-radius: 3px;
   color: red;
   font-size: 80%;
-  padding: 3px 10px 3px 10px;
+  padding: 6px 10px 6px 10px;
   margin-left: 10px;
   display: inline-block;
 }
@@ -48,14 +62,14 @@
   width: 100%;
 }
 
+
+
 .counter {
+  padding-top: 4px;
   float: right;
   font-style: italic;
 }
 
-.buttons:hover {
-  background-color: black;
-}
 
 #tweets {
 padding-bottom: 20px;
@@ -63,9 +77,13 @@ padding-bottom: 20px;
 
 .username {
     position: relative;
-    top: -54px;
+    top: -52px;
     float: right;
+    font-size: 90%;
+    color: #666666;
 }
+
+
 
 .tweetContent {
   padding: 1em;
@@ -78,15 +96,15 @@ article.tweet {
 }
 
 article.tweet:hover {
-  border: 1px solid #444444;
-}
-
-article.tweet:hover img {
-  opacity: 1;
+  border: 1px solid black;
 }
 
 article.tweet:hover h2 {
   color: #444444;
+}
+
+article.tweet:hover img {
+  opacity: 1;
 }
 
 article.tweet:hover header {
@@ -125,3 +143,99 @@ article.tweet img {
   float: left;
   opacity: 0.7;
 }
+
+#date {
+  color: #888888;
+  font-size: 85%;
+}
+
+#buttons {
+  float: right;
+  color: white;
+  padding-left: 10px;
+}
+
+#likeButton, #retweetButton, #flagButton {
+  padding-left: 10px;
+}
+
+article.tweet:hover #buttons {
+  color: #00a087;
+}
+
+#likeButton:hover {
+  color: red;
+  text-shadow: 1px 1px 1px black;
+}
+
+#retweetButton:hover {
+  color: blue;
+  text-shadow: 1px 1px 1px black;
+}
+
+#flagButton:hover {
+  color: orange;
+  text-shadow: 1px 1px 1px black;
+}
+
+
+@media (max-width: 500px) {
+  .logo {
+    display:none;
+  }
+  }
+
+@media (max-width: 500px) {
+  .username {
+    float:none;
+    position: relative;
+    top: -26px;
+    left: 10px;
+    color: #888888;
+    padding-bottom: 0;
+  }
+
+  article.tweet header {
+  padding: 1em 1em 0 1em;
+  }
+
+  .tweetContent {
+    font-size: 125%;
+  }
+
+  .new-tweet h2 {
+    display:none;
+  }
+
+  .new-tweet {
+    height: 190px;
+  }
+
+  #textfield {
+    height: 80px;
+    margin-top: 15px;
+  }
+
+  #nav-bar .header {
+    font-size: 350%;
+    letter-spacing: 2px;
+    width: 84%;
+    margin-top: 19px;
+    padding-left: 0;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  #submittweet {
+    width: 100%;
+    height: 45px;
+    margin-bottom: 5px;
+    font-size: 150%;
+  }
+
+  #composeButton {
+    opacity: 0;
+  }
+
+}
+
