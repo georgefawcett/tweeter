@@ -139,31 +139,9 @@ $(document).ready(function() {
 
   function renderNewTweet(tweets) {
     var tweet = tweets[tweets.length-1];
-    var tweetDate = new Date(tweet.created_at);
-    var tweetDate2 = tweetDate.toLocaleString();
-    function escape(str) {
-      var div = document.createElement('div');
-      div.appendChild(document.createTextNode(str));
-      return div.innerHTML;
-    }
-    var $output = `<article class="tweet">
-              <header>
-      <img src="${tweet.user.avatars.small}">
-      <h2>${tweet.user.name}</h2>
-      <div>
-            <div class="username">${tweet.user.handle}</span>
-            </div>
+    var $newOutput = createTweetElement(tweet);
 
-          </header>
-          <div class="tweetContent">
-          ${escape(tweet.content.text)}
-          </div>
-        <footer>
-        ${tweetDate2}
 
-        <span class="buttons" style="float:right">Test buttons</span>
-        </footer>
-        </article>`;
 
     // Reset the textarea and character counter
       $('#textfield').val('');
@@ -172,7 +150,7 @@ $(document).ready(function() {
     // Remove error class if tweet is corrected
       var msg = '';
       $('#errormessage').removeClass("tweetok").removeClass("tweeterror").html(msg);
-      $('#tweets').prepend($output);
+      $('#tweets').prepend($newOutput);
 
   }
 
