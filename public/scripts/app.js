@@ -1,41 +1,41 @@
 function createTweetElement(tweet) {
 
-  // Convert timestamp to how long ago it was
+  // Convert timestamp to how long ago it was (amended from web)
   function timeSince(date) {
-
     var seconds = Math.floor((new Date() - date) / 1000);
-
     var interval = Math.floor(seconds / 31536000);
-
     if (interval > 1) {
-        return interval + " years ago";
+      return interval + " years ago";
     }
     interval = Math.floor(seconds / 2592000);
     if (interval > 1) {
-        return interval + " months ago";
+      return interval + " months ago";
     }
     interval = Math.floor(seconds / 86400);
     if (interval > 1) {
-        return interval + " days ago";
+      return interval + " days ago";
     }
     interval = Math.floor(seconds / 3600);
     if (interval > 1) {
-        return interval + " hours ago";
+      return interval + " hours ago";
+    } else if (interval === 1) {
+      return interval + " hour ago";
     }
     interval = Math.floor(seconds / 60);
     if (interval > 1) {
-        return interval + " minutes ago";
+      return interval + " minutes ago";
     }
     return Math.floor(seconds) + " seconds ago";
-    }
+  }
 
-var timeAgo = timeSince(tweet.created_at) ;
+  var timeAgo = timeSince(tweet.created_at);
   function escape(str) {
     var div = document.createElement('div');
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   }
 
+  // Creates HTML output for each tweet
   var $output = `<article class="tweet">
     <header>
       <img src="${tweet.user.avatars.small}">
@@ -62,7 +62,7 @@ var timeAgo = timeSince(tweet.created_at) ;
 
 }
 
-
+// Iterate through tweets array and append HTML output
 function renderTweets(tweets) {
 
   tweets.sort(function (a, b) {
@@ -83,7 +83,7 @@ function renderTweets(tweets) {
 
 $(document).ready(function() {
 
-
+  // Tweet character counter
   $(this).on('keyup paste', function(){
     var characters = $("#textfield").val().length;
     $("#counter").text(140-characters);
@@ -118,58 +118,56 @@ $(document).ready(function() {
       var msg = '<b>Error:</b> You didn\'t write anything!';
       $('#errormessage').addClass("tweeterror").removeClass("tweetok").html(msg);
 
-  } else {
+    } else {
 
-  function addTweet() {
-    $.ajax( {
-      type: "POST",
-      url: '/tweets',
-      data: formdata,
-      success: loadNewTweet
-    } );
-  }
+      function addTweet() {
+        $.ajax( {
+          type: "POST",
+          url: '/tweets',
+          data: formdata,
+          success: loadNewTweet
+        });
+      }
 
-  function loadNewTweet() {
-      $.ajax({
-       method: 'GET',
-        url: `/tweets`,
-        success: renderNewTweet
-      });
-    };
+      function loadNewTweet() {
+        $.ajax({
+          method: 'GET',
+          url: `/tweets`,
+          success: renderNewTweet
+        });
+      };
 
-  function renderNewTweet(tweets) {
-    var tweet = tweets[tweets.length-1];
-    var $newOutput = createTweetElement(tweet);
+      function renderNewTweet(tweets) {
 
+        // Create HTML output for just the last tweet
+        var tweet = tweets[tweets.length-1];
+        var $newOutput = createTweetElement(tweet);
 
+        // Reset the textarea and character counter
+        $('#textfield').val('');
+        $('#counter').html('140');
 
-    // Reset the textarea and character counter
-      $('#textfield').val('');
-      $('#counter').html('140');
+        // Remove error class/message if tweet is corrected
+        var msg = '';
+        $('#errormessage').removeClass("tweetok").removeClass("tweeterror").html(msg);
+        $('#tweets').prepend($newOutput);
+      }
 
-    // Remove error class if tweet is corrected
-      var msg = '';
-      $('#errormessage').removeClass("tweetok").removeClass("tweeterror").html(msg);
-      $('#tweets').prepend($newOutput);
+      addTweet();
 
-  }
-
-
-  addTweet();
-
-  }
+      }
 
   event.preventDefault();
   });
 
-$("#composeButton").click(function(){
+  // Slide toggle function for tweet box
+  $("#composeButton").click(function(){
     $(".new-tweet").slideToggle(400, function() {
     $("#textfield").focus();
     });
+  });
+
+  // Set focus on default page-load
+  $("#textfield").focus();
+
 });
-
-// Set focus on default page-load
-$("#textfield").focus();
-
-});
-

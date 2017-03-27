@@ -25,18 +25,11 @@ db.connect(MONGODB_URI, (err, db) => {
   app.listen(PORT, () => {
     console.log("Example app listening on port " + PORT);
   });
-  // ==> Refactored and wrapped as new, tweet-specific function:
 
    db.collection("tweets").find().toArray((err, results) => {
     if (err) throw err;
 
-
-    // This is the end...
-
   });
-
-
-
 
 
 // The `data-helpers` module provides an interface to the database of tweets.

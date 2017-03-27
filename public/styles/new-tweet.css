@@ -183,9 +183,7 @@ article.tweet:hover #buttons {
   .logo {
     display:none;
   }
-  }
 
-@media (max-width: 500px) {
   .username {
     float:none;
     position: relative;
@@ -200,7 +198,7 @@ article.tweet:hover #buttons {
   }
 
   .tweetContent {
-    font-size: 125%;
+    font-size: 130%;
   }
 
   .new-tweet h2 {
